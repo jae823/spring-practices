@@ -32,7 +32,7 @@ public class GuestbookController {
 		List<GuestbookVo> list = guestbookRepository.findAll();
 		System.out.println(list);
 		model.addAttribute("list", list);
-		return "/WEB-INF/views/index.jsp";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/deleteform/{no}")
@@ -48,7 +48,7 @@ public class GuestbookController {
 		List<GuestbookVo> list = guestbookRepository.findAll();
 		System.out.println(list);
 		model.addAttribute("list", list);
-		return "/WEB-INF/views/index.jsp";
+		return "redirect:/";
 	}
 	
 }
