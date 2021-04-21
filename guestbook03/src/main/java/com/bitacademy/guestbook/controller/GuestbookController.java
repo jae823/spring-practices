@@ -20,18 +20,13 @@ public class GuestbookController {
 	@RequestMapping({"","/"})
 	public String index(Model model) {
 		List<GuestbookVo> list = guestbookRepository.findAll();
-		System.out.println(list);
 		model.addAttribute("list", list);
 		return "/WEB-INF/views/index.jsp";
 	}
 	
 	@RequestMapping("/add")
-	public String add(Model model, GuestbookVo vo) {
-		System.out.println(vo);
+	public String add(GuestbookVo vo) {
 		guestbookRepository.insert(vo);
-		List<GuestbookVo> list = guestbookRepository.findAll();
-		System.out.println(list);
-		model.addAttribute("list", list);
 		return "redirect:/";
 	}
 	
@@ -42,12 +37,8 @@ public class GuestbookController {
 	}
 	
 	@RequestMapping("/delete")
-	public String delete(Model model,  GuestbookVo vo) {
-		System.out.println(vo);
+	public String delete(GuestbookVo vo) {
 		guestbookRepository.delete(vo);
-		List<GuestbookVo> list = guestbookRepository.findAll();
-		System.out.println(list);
-		model.addAttribute("list", list);
 		return "redirect:/";
 	}
 	
